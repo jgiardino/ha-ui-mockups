@@ -62,6 +62,8 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({children}) => {
       nav={Navigation}
       isNavOpen={isMobileView ? isNavOpenMobile : isNavOpen} />
   );
+  // to render the navigation sidebar, add the following to the Page component:
+  // sidebar={Sidebar}
   const PageSkipToContent = (
     <SkipToContent href="#primary-app-container">
       Skip to Content
@@ -71,7 +73,6 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({children}) => {
     <Page
       mainContainerId="primary-app-container"
       header={Header}
-      sidebar={Sidebar}
       onPageResize={onPageResize}
       skipToContent={PageSkipToContent}>
       {children}

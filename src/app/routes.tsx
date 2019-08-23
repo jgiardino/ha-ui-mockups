@@ -4,6 +4,8 @@ import { Alert, PageSection } from '@patternfly/react-core';
 import { DynamicImport } from '@app/DynamicImport';
 import { accessibleRouteChangeHandler } from '@app/utils/utils';
 import { Dashboard } from '@app/Dashboard/Dashboard';
+import { Resources } from '@app/Resources/Resources';
+import { ResourceSelected } from '@app/ResourceSelected/ResourceSelected';
 import { NotFound } from '@app/NotFound/NotFound';
 import DocumentTitle from 'react-document-title';
 import { LastLocationProvider, useLastLocation } from 'react-router-last-location';
@@ -85,6 +87,22 @@ const routes: IAppRoute[] = [
     label: 'Support',
     path: '/support',
     title: 'Support Page Title'
+  },
+  {
+    component: Resources,
+    exact: true,
+    icon: null,
+    label: 'Resources',
+    path: '/resources',
+    title: 'Resources page title'
+  },
+  {
+    component: ResourceSelected,
+    exact: true,
+    icon: null,
+    label: 'Resource selected',
+    path: '/resource-selected',
+    title: 'Resource selected page title'
   }
 ];
 
