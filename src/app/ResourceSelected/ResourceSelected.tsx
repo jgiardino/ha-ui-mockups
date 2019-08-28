@@ -100,7 +100,7 @@ class ResourceSelected extends Component<{}, {activeTabKey: any }> {
           </StackItem>
         </Stack>
       </PageSection>
-      <PageSection className="pf-m-fill pf-u-h-100">
+      <PageSection className="ha-m-full-height pf-m-fill">
             <div className="pf-l-flex pf-u-align-items-flex-start pf-u-h-100">
               <div className="pf-c-card ha-c-panel__tree-view">
                 <ResourcesList />
