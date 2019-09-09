@@ -18,6 +18,7 @@ import { ResourcesToolbar } from '@app/Components/ResourcesToolbar';
 import { ResourcesList } from '@app/Components/ResourcesList';
 import { PreferencesToolbar } from '@app/Components/PreferencesToolbar';
 import { PreferencesDataList } from '@app/Components/PreferencesDataList';
+import { AttributesForm } from '@app/Components/AttributesForm';
 
 class ResourceSelected extends Component<{}, {activeTabKey: any }> {
   constructor(props) {
@@ -152,7 +153,7 @@ class ResourceSelected extends Component<{}, {activeTabKey: any }> {
                       </Stack>
                     </TabContent>
                     <TabContent eventKey={2} id="refTab3Section" ref={this.contentRef3} aria-label="Attributes" hidden>
-                      Attributes section
+                      <AttributesForm />
                     </TabContent>
                     <TabContent eventKey={3} id="refTab4Section" ref={this.contentRef4} aria-label="Arguments" hidden>
                       Arguments section

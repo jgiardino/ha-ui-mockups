@@ -152,4 +152,15 @@ html, body, #root {
 /* but keep contents accessible to assistive technology */
 
 
+/* Attributes form - radio button spacing */
+.ha-c-radio {
+  align-items: flex-start;
+}
+.ha-c-radio .pf-c-radio__input {
+  min-height: calc(var(--pf-global--LineHeight--md) * 1rem);
+}
+.ha-c-radio .pf-c-radio__label {
+  line-height: var(--pf-global--LineHeight--md);
+}
+
 
