@@ -19,7 +19,7 @@ const ResourcesToolbar: React.FunctionComponent<any> = (props) => {
     <Toolbar className="pf-l-toolbar pf-u-justify-content-space-between">
       <ToolbarGroup>
         <ToolbarItem>
-          <Button variant="plain" aria-label="Action 1">
+          <Button variant="plain">
             Create Group
           </Button>
         </ToolbarItem>

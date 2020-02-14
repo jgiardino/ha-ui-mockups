@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ArrowCircleRightIcon, OkIcon } from '@patternfly/react-icons';
+import { ArrowCircleRightIcon, CheckCircleIcon, ExclamationTriangleIcon, ExclamationCircleIcon } from '@patternfly/react-icons';
 import {
   Button,
   DataList,
@@ -12,6 +12,7 @@ import {
 
 } from '@patternfly/react-core';
 import { DataListActions } from '@app/Components/DataListActions';
+import { CompositeStatus } from '@app/Components/CompositeStatus';
 
 class ResourcesList extends Component<{fullWidth?: boolean}, {expanded: Array<string> }> {
   constructor(props) {
@@ -50,7 +51,7 @@ class ResourcesList extends Component<{fullWidth?: boolean}, {expanded: Array<st
               ]}
             />
             <div className="ha-c-data-list__item-status">
-              <OkIcon /> <span>status text</span>
+              <CompositeStatus error={0} warning={0} info={1} />
             </div>
             <DataListActions id="ex-item1" />
             {!this.props.fullWidth &&
@@ -85,7 +86,7 @@ class ResourcesList extends Component<{fullWidth?: boolean}, {expanded: Array<st
                     ]}
                   />
                   <div className="ha-c-data-list__item-status">
-                    <OkIcon /> <span>status text</span>
+                    <CheckCircleIcon className="ha-u-status-success" /> <span>Running</span>
                   </div>
                   <DataListActions id="ex-item1a" />
                   {!this.props.fullWidth &&
@@ -113,12 +114,12 @@ class ResourcesList extends Component<{fullWidth?: boolean}, {expanded: Array<st
                               <a href="#apache"><strong id="ex-item3a">apache</strong></a>
                             </DataListCell>,
                             <DataListCell key="secondary content">
-                              <span>Type</span> <strong>ocf:heartbeat:apache</strong>
+                              <span>Type</span> <strong>apache</strong> (ocf:heartbeat)
                             </DataListCell>
                           ]}
                         />
                         <div className="ha-c-data-list__item-status">
-                          <OkIcon /> <span>status text</span>
+                        <ExclamationCircleIcon  className="ha-u-status-danger" /> <span>Failed</span>
                         </div>
                         <DataListActions id="ex-item1a" />
                         {!this.props.fullWidth &&
@@ -153,7 +154,7 @@ class ResourcesList extends Component<{fullWidth?: boolean}, {expanded: Array<st
               ]}
             />
             <div className="ha-c-data-list__item-status">
-              <OkIcon /> <span>status text</span>
+              <CompositeStatus error={2} warning={1} info={1} />
             </div>
             <DataListActions id="ex-item1a" />
             {!this.props.fullWidth &&
@@ -181,12 +182,12 @@ class ResourcesList extends Component<{fullWidth?: boolean}, {expanded: Array<st
                         <a href="#R2"><strong id="ex-item3a">R2</strong></a>
                       </DataListCell>,
                       <DataListCell key="secondary content">
-                        <span>Type</span> <strong>ocf:heartbeat:Dummy</strong>
+                        <span>Type</span> <strong>Dummy</strong> (ocf:heartbeat)
                       </DataListCell>
                     ]}
                   />
                   <div className="ha-c-data-list__item-status">
-                    <OkIcon /> <span>status text</span>
+                    <CheckCircleIcon className="ha-u-status-success" /> <span>Running</span>
                   </div>
                   <DataListActions id="ex-item1a" />
                   {!this.props.fullWidth &&
@@ -208,12 +209,78 @@ class ResourcesList extends Component<{fullWidth?: boolean}, {expanded: Array<st
                         <a href="#R3"><strong id="ex-item3a">R3</strong></a>
                       </DataListCell>,
                       <DataListCell key="secondary content">
-                        <span>Type</span> <strong>ocf:heartbeat:Dummy</strong>
+                        <span>Type</span> <strong>Dummy</strong> (ocf:heartbeat)
                       </DataListCell>
                     ]}
                   />
                   <div className="ha-c-data-list__item-status">
-                    <OkIcon /> <span>status text</span>
+                    <div>
+                      <ExclamationCircleIcon  className="ha-u-status-danger" /> <span>Failed</span>
+                    </div>
+                    <div>
+                      <ExclamationCircleIcon  className="ha-u-status-danger" /> <span>Blocked</span>
+                    </div>
+                  </div>
+                  <DataListActions id="ex-item2b" />
+                  {!this.props.fullWidth &&
+                    <div className="ha-c-tree-view__selected-status">
+                      <ArrowCircleRightIcon />
+                    </div>
+                  }
+                </DataListItemRow>
+              </DataListItem>
+              <DataListItem aria-labelledby="ex-item2b">
+                <DataListItemRow>
+                  <DataListToggle
+                    id="ex-toggle2b"
+                    aria-hidden="true"
+                  />
+                  <DataListItemCells
+                    dataListCells={[
+                      <DataListCell key="primary content">
+                        <a href="#R3"><strong id="ex-item3a">R3</strong></a>
+                      </DataListCell>,
+                      <DataListCell key="secondary content">
+                        <span>Type</span> <strong>Dummy</strong> (ocf:heartbeat)
+                      </DataListCell>
+                    ]}
+                  />
+                  <div className="ha-c-data-list__item-status">
+                    <div>
+                      <ExclamationCircleIcon  className="ha-u-status-danger" /> <span>Failed</span>
+                    </div>
+                  </div>
+                  <DataListActions id="ex-item2b" />
+                  {!this.props.fullWidth &&
+                    <div className="ha-c-tree-view__selected-status">
+                      <ArrowCircleRightIcon />
+                    </div>
+                  }
+                </DataListItemRow>
+              </DataListItem>
+              <DataListItem aria-labelledby="ex-item2b">
+                <DataListItemRow>
+                  <DataListToggle
+                    id="ex-toggle2b"
+                    aria-hidden="true"
+                  />
+                  <DataListItemCells
+                    dataListCells={[
+                      <DataListCell key="primary content">
+                        <a href="#R3"><strong id="ex-item3a">R5</strong></a>
+                      </DataListCell>,
+                      <DataListCell key="secondary content">
+                        <span>Type</span> <strong>Dummy</strong> (ocf:heartbeat)
+                      </DataListCell>
+                    ]}
+                  />
+                  <div className="ha-c-data-list__item-status">
+                    <div>
+                      <ExclamationTriangleIcon  className="ha-u-status-warning" /> <span>Unmanaged</span>
+                    </div>
+                    <div>
+                      <CheckCircleIcon className="ha-u-status-success" /> <span>Success status text</span>
+                    </div>
                   </div>
                   <DataListActions id="ex-item2b" />
                   {!this.props.fullWidth &&
@@ -247,7 +314,8 @@ class ResourcesList extends Component<{fullWidth?: boolean}, {expanded: Array<st
               ]}
             />
             <div className="ha-c-data-list__item-status">
-              <OkIcon /> <span>status text</span>
+              <CompositeStatus error={0} warning={1} info={1} />
+              
             </div>
             <DataListActions id="ex-item3" directionUp={!this.state.expanded.includes('ex-toggle3')}/>
             {!this.props.fullWidth &&
@@ -275,12 +343,41 @@ class ResourcesList extends Component<{fullWidth?: boolean}, {expanded: Array<st
                         <a href="#R1"><strong id="ex-item3a">R1</strong></a>
                       </DataListCell>,
                       <DataListCell key="secondary content">
-                        <span>Type</span> <strong>ocf:heartbeat:Dummy</strong>
+                        <span>Type</span> <strong>Dummy</strong> (ocf:heartbeat)
                       </DataListCell>
                     ]}
                   />
                   <div className="ha-c-data-list__item-status">
-                    <OkIcon /> <span>status text</span>
+                    <CheckCircleIcon className="ha-u-status-success" /> <span>Success status text</span>
+                  </div>
+                  <DataListActions id="ex-item3a" directionUp={true} />
+                  {!this.props.fullWidth &&
+                    <div className="ha-c-tree-view__selected-status">
+                      <ArrowCircleRightIcon />
+                    </div>
+                  }
+                </DataListItemRow>
+              </DataListItem>
+            </DataList>
+            <DataList aria-label="Resources level 2" data-level="2">
+              <DataListItem aria-labelledby="ex-item3a">
+                <DataListItemRow>
+                  <DataListToggle
+                    id="ex-toggle3a"
+                    aria-hidden="true"
+                  />
+                  <DataListItemCells
+                    dataListCells={[
+                      <DataListCell key="primary content">
+                        <a href="#R1"><strong id="ex-item3a">R1</strong></a>
+                      </DataListCell>,
+                      <DataListCell key="secondary content">
+                        <span>Type</span> <strong>Dummy</strong> (ocf:heartbeat)
+                      </DataListCell>
+                    ]}
+                  />
+                  <div className="ha-c-data-list__item-status">
+                    <ExclamationTriangleIcon className="ha-u-status-warning" /> <span>Warning status text</span>
                   </div>
                   <DataListActions id="ex-item3a" directionUp={true} />
                   {!this.props.fullWidth &&

@@ -102,6 +102,7 @@ html, body, #root {
   flex: 0 0 10rem;
   margin-left: auto;
   padding-top: var(--pf-c-data-list__cell--PaddingTop);
+  padding-bottom: var(--pf-c-data-list__item-content--PaddingBottom);
 } /* sets spacing for Status column */
 
 @media screen and (max-width: 62rem) {
@@ -161,6 +162,42 @@ html, body, #root {
 }
 .ha-c-radio .pf-c-radio__label {
   line-height: var(--pf-global--LineHeight--md);
+}
+
+
+/* Composite Status component */
+.ha-u-status-danger {
+  color: var(--pf-global--danger-color--100)
+}
+.ha-u-status-warning {
+  color: var(--pf-global--warning-color--100)
+}
+.ha-u-status-success {
+  color: var(--pf-global--success-color--100)
+}
+
+.ha-c-composite-status {
+  display: flex;
+  flex-wrap: wrap;
+}
+.ha-c-composite-status .ha-c-composite-status__item {
+  margin-right: var(--pf-global--spacer--xs);
+  margin-bottom: var(--pf-global--spacer--xs);
+  flex: 0 0 var(--pf-global--spacer--md);
+  height: var(--pf-global--spacer--md);
+}
+.ha-c-composite-status .ha-c-composite-status__item:last-child {
+  margin-right: 0;
+}
+.ha-c-composite-status__item.ha-m-error {
+  background-color: var(--pf-global--danger-color--100);
+}
+.ha-c-composite-status__item.ha-m-warning {
+  background-color: var(--pf-global--warning-color--100);
+}
+.ha-c-composite-status__item.ha-m-info {
+  background-color: #BDE2B9;
+  /* background-color: var(--pf-global--success-color--100); */
 }
 
 
